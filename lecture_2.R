@@ -47,6 +47,16 @@ df %>%
            if_else(Q2.3 == 99, NA_real_, Q2.3)) %>% 
   with(round(prop.table(table(income))*100,1))
 
+#便利なパッケージもあります！
+#install.packages("janitor")
+library(janitor)
+
+#変数の度数分布を一括して見れる
+df %>% 
+  drop_na(income) %>% #NAを除く
+  tabyl(income)　#度数分布をみる
+
+
 #図を作ってみる
 #自分でデータフレームを作ってみよう
 
